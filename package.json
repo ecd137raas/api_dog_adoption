@@ -4,7 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/server"
+    "dev": "nodemon src/server",
+    "start": "node src/server",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +16,15 @@
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "knex": "^0.95.4",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7",
-    "dotenv": "^8.2.0"
+    "eslint": "^7.24.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "nodemon": "^2.0.7"
   }
 }

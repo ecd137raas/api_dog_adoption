@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 module.exports = {
   development: {
@@ -9,7 +9,7 @@ module.exports = {
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
       migrations: {
-        directory: './database/migrations',
+        directory: './database/migrations'
       }
     },
     pool: {
@@ -18,4 +18,3 @@ module.exports = {
     }
   }
 }
-

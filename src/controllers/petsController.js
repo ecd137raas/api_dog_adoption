@@ -14,7 +14,7 @@ module.exports = {
     const pets = await connection.select('*').from('pets')
     res.status(200).json(pets)
   },
-  async showById (req, res) {
+  async indexById (req, res) {
     const id = req.params.id
     const pets = await connection('pets').where({ id }).select('*')
     if (pets.length !== 0) {
@@ -38,7 +38,7 @@ module.exports = {
     const { tipo, nome, idade } = req.body
     try {
       await connection('pets').where('id', id).update({ tipo, nome, idade })
-      res.status(200).json({ sucesso: 'Registro alterado com sucesso' })
+      res.status(200).json({ sucesso: 'Operação realizada com sucesso' })
     } catch (err) {
       res.status(400).json({ erro: err })
     }
@@ -47,7 +47,7 @@ module.exports = {
     const id = req.params.id
     try {
       await connection('pets').where('id', id).del()
-      res.status(200).json({ sucesso: 'Registro removido com sucesso' })
+      res.status(200).json({ sucesso: 'Operação realizada com sucesso' })
     } catch (err) {
       res.status(400).json({ erro: err })
     }

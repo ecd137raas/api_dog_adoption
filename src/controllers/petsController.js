@@ -1,9 +1,10 @@
 const connection = require('../database/connection')
 const axios = require('axios')
 
-const getImage = async () => {
+const getImage = async (raca) => {
+  const defRaca = raca.toLowerCase()
   try {
-    return await axios.get('https://dog.ceo/api/breeds/image/random')
+    return await axios.get(`https://dog.ceo/api/breed/${defRaca}/images/random`)
   } catch (error) {
     console.error(error)
   }
@@ -24,10 +25,10 @@ module.exports = {
     res.sendStatus(404)
   },
   async create (req, res) {
-    const { tipo, nome, idade, id_centro_adocao: idCentroAdocao } = req.body
-    const foto = await getImage()
+    const { tipo, nome, idade, raca, id_centro_adocao: idCentroAdocao } = req.body
+    const foto = await getImage(raca)
     try {
-      await connection('pets').insert({ tipo, nome, idade, foto: foto.data.message, id_centro_adocao: idCentroAdocao })
+      await connection('pets').insert({ tipo, nome, idade, raca, foto: foto.data.message, id_centro_adocao: idCentroAdocao })
       res.status(201).json({ sucesso: 'Operação realizada com sucesso' })
     } catch (err) {
       res.status(400).json({ erro: err })

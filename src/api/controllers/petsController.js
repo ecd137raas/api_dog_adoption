@@ -1,14 +1,6 @@
-const connection = require('../database/connection')
-const axios = require('axios')
-
-const getImage = async (raca) => {
-  const defRaca = raca.toLowerCase()
-  try {
-    return await axios.get(`https://dog.ceo/api/breed/${defRaca}/images/random`)
-  } catch (error) {
-    console.error(error)
-  }
-}
+const connection = require('../../database/connection')
+const msg = require('../../constants/petsConstants')
+const dogImage = require('../services/dogApi')
 
 module.exports = {
   async index (req, res) {
@@ -26,10 +18,10 @@ module.exports = {
   },
   async create (req, res) {
     const { tipo, nome, idade, raca, id_centro_adocao: idCentroAdocao } = req.body
-    const foto = await getImage(raca)
+    const foto = await dogImage(raca)
     try {
       await connection('pets').insert({ tipo, nome, idade, raca, foto: foto.data.message, id_centro_adocao: idCentroAdocao })
-      res.status(201).json({ sucesso: 'Operação realizada com sucesso' })
+      res.status(201).json({ sucesso: msg.success })
     } catch (err) {
       res.status(400).json({ erro: err })
     }
@@ -39,7 +31,7 @@ module.exports = {
     const { tipo, nome, idade } = req.body
     try {
       await connection('pets').where('id', id).update({ tipo, nome, idade })
-      res.status(200).json({ sucesso: 'Operação realizada com sucesso' })
+      res.status(200).json({ sucesso: msg.success })
     } catch (err) {
       res.status(400).json({ erro: err })
     }
@@ -48,7 +40,7 @@ module.exports = {
     const id = req.params.id
     try {
       await connection('pets').where('id', id).del()
-      res.status(200).json({ sucesso: 'Operação realizada com sucesso' })
+      res.status(200).json({ sucesso: msg.success })
     } catch (err) {
       res.status(400).json({ erro: err })
     }

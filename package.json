@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/server",
-    "start": "node src/server",
+    "dev": "nodemon src/config/server",
+    "start": "node src/config/server",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },

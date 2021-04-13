@@ -1,13 +1,13 @@
-require('dotenv').config()
+const db = require('../config/config')
 
 module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      host: process.env.DB_HOST,
-      database: process.env.DATABASE,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASS,
+      host: db.host,
+      database: db.database,
+      user: db.user,
+      password: db.password,
       migrations: {
         directory: './database/migrations'
       }

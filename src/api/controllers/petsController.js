@@ -17,10 +17,10 @@ module.exports = {
     res.sendStatus(404)
   },
   async create (req, res) {
-    const { tipo, nome, idade, raca, id_centro_adocao: idCentroAdocao } = req.body
+    const { tipo, nome, idade, raca, idcentroadocao: idCentroAdocao } = req.body
     const foto = await dogImage(raca)
     try {
-      await connection('pets').insert({ tipo, nome, idade, raca, foto: foto.data.message, id_centro_adocao: idCentroAdocao })
+      await connection('pets').insert({ tipo, nome, idade, raca, foto: foto.data.message, idcentroadocao: idCentroAdocao })
       res.status(201).json({ sucesso: msg.success })
     } catch (err) {
       res.status(400).json({ erro: err })

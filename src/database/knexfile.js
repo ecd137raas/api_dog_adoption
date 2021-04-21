@@ -7,10 +7,7 @@ module.exports = {
       host: db.host,
       database: db.database,
       user: db.user,
-      password: db.password,
-      migrations: {
-        directory: './database/migrations'
-      }
+      password: db.password
     },
     pool: {
       min: 2,

@@ -1,5 +1,5 @@
-const connection = require('../../database/connection')
-const msg = require('../../constants/petsConstants')
+const connection = require('../database/connection')
+const msg = require('../constants/pets')
 const dogImage = require('../services/dogApi')
 
 module.exports = {

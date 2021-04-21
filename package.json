@@ -1,11 +1,11 @@
 {
-  "name": "api-pets-adoption",
+  "name": "api-dog-adoption",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/config/server",
-    "start": "node src/config/server",
+    "dev": "nodemon src/server",
+    "start": "node src/server",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "test": "jest"

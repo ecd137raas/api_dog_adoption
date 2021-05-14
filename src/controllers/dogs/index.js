@@ -1,6 +1,6 @@
-const connection = require('../database/connection')
-const msg = require('../constants')
-const dogImage = require('../services')
+const connection = require('../../database/connection')
+const msg = require('../../constants')
+const dogImage = require('../../services')
 
 module.exports = {
   async index (req, res) {

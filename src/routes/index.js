@@ -1,5 +1,5 @@
 const express = require('express')
-const dogs = require('../controllers/dogs')
+const dogs = require('../controllers')
 
 const route = express.Router()
 

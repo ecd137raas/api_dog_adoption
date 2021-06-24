@@ -9,6 +9,7 @@ module.exports = {
   },
   async indexById (req, res) {
     const id = req.params.id
+    // #app.swagger.parameters.['id'] = { description: 'ID do usuário.' }
     const result = await connection('dogs_adoption').where({ id }).select('*')
     if (result.length !== 0) {
       res.status(200).json(result)

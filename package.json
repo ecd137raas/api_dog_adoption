@@ -8,8 +8,7 @@
     "start": "node src/server",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "test": "jest",
-    "swagger-autogen": "node src/swagger.js"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +17,7 @@
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "knex": "^0.95.4",
-    "pg": "^8.6.0",
-    "swagger-autogen": "^2.10.0",
-    "swagger-ui-express": "^4.1.6"
+    "pg-promise": "^10.10.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",

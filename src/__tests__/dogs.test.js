@@ -22,7 +22,7 @@ test('should get dogs', async function () {
     primary_color: generate(),
     photo: generate(),
     id_dog_adoption_center: '1',
-    breeds: generate()
+    breeds: 'affenpinscher'
   })
   const response = await request('http://localhost:3333/dogs', 'get')
   const dogs = response.data
@@ -41,7 +41,7 @@ test('should save a dog', async function () {
     primary_color: generate(),
     photo: generate(),
     id_dog_adoption_center: '1',
-    breeds: generate()
+    breeds: 'affenpinscher'
   }
   const response = await request('http://localhost:3333/dogs', 'post', data)
   const dog = response.data
@@ -61,7 +61,7 @@ test('should update a dog', async function () {
     primary_color: generate(),
     photo: generate(),
     id_dog_adoption_center: '1',
-    breeds: generate()
+    breeds: 'affenpinscher'
   })
   dog.name = generate()
   dog.primary_color = generate()
@@ -86,7 +86,7 @@ test('should delete a dog', async function () {
     primary_color: generate(),
     photo: generate(),
     id_dog_adoption_center: '1',
-    breeds: generate()
+    breeds: 'affenpinscher'
   })
 
   await request(`http://localhost:3333/dog/${dog.id}`, 'delete')
